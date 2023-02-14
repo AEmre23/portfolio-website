@@ -47,13 +47,13 @@ body::-webkit-scrollbar-thumb{
     right: 30px;
   }
 }
-.hoverEffect{
-  transition: all .3s ease-in-out;
+.backg-image{
+  background-image: url("cornered-stairs.png");
 }
+
 .hoverEffect:hover > :not(:hover) {
-  transition: all .3s ease-in-out;
+  transition: all .4s ease-in-out;
   opacity: .4;
-  scale: .9;
 }
 
 .shake {
