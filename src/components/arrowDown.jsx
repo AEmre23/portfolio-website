@@ -12,8 +12,6 @@ const ArrowDown = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [showArrow]);
-
-  console.log("aaa", document.body.offsetHeight)
   
   const handleScroll = () => {
     if (window.scrollY + window.innerHeight < document.body.offsetHeight - 200) {

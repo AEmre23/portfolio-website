@@ -18,7 +18,7 @@ function App() {
 
   return (
     <AnimatePresence>
-      <div className="fixed top-0 left-0 h-screen w-screen bg-hero bg-cover bg-no-repeat overflow-clip pointer-events-none" />
+      <div className="fixed top-0 left-0 h-screen w-screen bg-[url('./src/assets/cornered-stairs.png')] bg-cover bg-no-repeat overflow-clip pointer-events-none" />
       {screen === "welcome" &&
         <Welcome
           setScreen={setScreen}
