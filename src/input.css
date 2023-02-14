@@ -48,7 +48,7 @@ body::-webkit-scrollbar-thumb{
   }
 }
 .backg-image{
-  background-image: url("cornered-stairs.png");
+  background-image: url("/public/cornered-stairs.png");
 }
 
 .hoverEffect:hover > :not(:hover) {
