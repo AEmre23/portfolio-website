@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&family=Unbounded:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  scroll-behavior: smooth;
+  cursor: default;
+}
+body::-webkit-scrollbar{
+  background: dimgrey;
+  width: 5px;
+}
+body::-webkit-scrollbar-thumb{
+  background: rgb(15, 15, 4);
+  border-radius: 15px;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+
+  80% {
+    width: 34ch;
+  }
+
+  100% {
+    width: 34ch;
+  }
+}
+
+@keyframes shaking {
+  0% {
+    right: 30px;
+  }
+  50% {
+    right: 20px;
+  }
+  100% {
+    right: 30px;
+  }
+}
+.hoverEffect{
+  transition: all .3s ease-in-out;
+}
+.hoverEffect:hover > :not(:hover) {
+  transition: all .3s ease-in-out;
+  opacity: .4;
+  scale: .9;
+}
+
+.shake {
+  animation: shaking 1s infinite ;
+  transition: all .3s ease-in-out;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch img{
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  width: 18px;
+  height: auto;
+  cursor: pointer;
+}
+.switch .Turkey{
+  left: 5px;
+}
+.switch .USA{
+  right: 5px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(96 165 250);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked+.slider {
+  background-color: rgb(250 204 21);
+}
+input:focus+.slider {
+  box-shadow: 0 0 1px rgb(250 204 21);
+}
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+  z-index: 1;
+}
+.cls-1 {
+  stroke: #000000;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 20px;
+}
