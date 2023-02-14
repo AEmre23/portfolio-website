@@ -84,7 +84,7 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
         when: "beforeChildren",
         staggerChildren: .6,
         duration: .2,
-        delay:2,
+        delay:1.3,
         type: "spring"
       }
     }
@@ -109,7 +109,7 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
         when: "beforeChildren",
         staggerChildren: .6,
         duration: .2,
-        delay:3,
+        delay:2.4,
         type: "spring"
       }
     }
