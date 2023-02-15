@@ -91,7 +91,7 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
   }
 
   const containerChild2 = {
-    hidden: { y: "-100vw" },
+    hidden: { y: "-100vh" },
     show: {
       y: 0,
       transition: {
