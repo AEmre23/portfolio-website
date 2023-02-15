@@ -90,16 +90,16 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
     }
   }
 
-    const containerChild2 = {
-    hidden: { opacity: 0 },
+  const containerChild2 = {
+    hidden: { y: "-100vw" },
     show: {
-      opacity: 1,
+      y: 0,
       transition: {
-        duration: .7,
+        duration: .9,
         type: "spring"
       }
     }
-    }
+  }
   
   const container3 = {
     hidden: { delay:1, x: 500 },
@@ -109,7 +109,7 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
         when: "beforeChildren",
         staggerChildren: .6,
         duration: .2,
-        delay:2.4,
+        delay:2.7,
         type: "spring"
       }
     }

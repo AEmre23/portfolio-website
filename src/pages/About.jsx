@@ -25,7 +25,7 @@ const About = ({ setScreen }) => {
       transition={{ duration: 1 }}
       className="text-white relative py-12 m:pt-36 min-h-screen flex justify-center items-center overflow-clip"
     >
-      <m.div className="w-8/12 m:w-11/12 space-y-8">
+      <m.div className="w-8/12 max-w-[1025px] m:w-11/12 space-y-8">
         <m.div
           style={{
             transform: isInViewFor1 ? "none" : "translateY(100px)",
