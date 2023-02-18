@@ -8,10 +8,10 @@ html,
 body{
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: overlay;
   scroll-behavior: smooth;
   cursor: default;
+  overflow-x: clip;
+  scroll-padding-top: 30px;
 }
 body::-webkit-scrollbar{
   background: dimgrey;
@@ -20,6 +20,14 @@ body::-webkit-scrollbar{
 body::-webkit-scrollbar-thumb{
   background: rgb(15, 15, 4);
   border-radius: 15px;
+}
+
+@media (max-width:978px){
+  .inset-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @keyframes typing {
@@ -48,7 +56,7 @@ body::-webkit-scrollbar-thumb{
   }
 }
 .backg-image{
-  background-image: url("/public/cornered-stairs.png");
+  background-image: url("/cornered-stairs.png");
 }
 
 .hoverEffect:hover > :not(:hover) {

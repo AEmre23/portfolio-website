@@ -10,7 +10,7 @@ const Contact = ({ setScreen }) => {
     <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ x: "100vw" }}
+      exit={{ x: "-100vw" }}
       transition={{ duration: 1, opacity: { delay: 1 } }}
       className="text-white z-30 relative h-screen w-screen flex flex-col gap-24 justify-center items-center"
     >
@@ -42,7 +42,7 @@ const Contact = ({ setScreen }) => {
       <h3 className="opacity-60 hover:opacity-100 hover:scale-125 duration-300 cursor-pointer font-semibold text-xs">
         {t('Contact-2')}
       </h3>
-      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer rotate-180 shake hover:scale-110">
+      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake hover:scale-110">
         <GoBack width="75" height="75" setScreen={setScreen} />
       </div>
     </m.div>

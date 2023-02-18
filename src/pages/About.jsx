@@ -137,6 +137,20 @@ const About = ({ setScreen }) => {
             
           </div>
         </m.div>
+        <div className="flex gap-24 m:gap-4 py-6 justify-center items-center">
+          <button 
+            onClick={() => setScreen("contact")} 
+            className="hover:bg-gray-100 bg-neutral-900 duration-300 hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
+          >
+            {t('About-5-1')}
+          </button>
+          <button 
+            onClick={() => setScreen("projects")} 
+            className="hover:bg-gray-100 bg-neutral-900 duration-300 hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
+          >
+            {t('About-5-2')}
+          </button>
+        </div>
       </m.div>
       <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake hover:scale-110">
         <GoBack width="75" height="75" setScreen={setScreen} />

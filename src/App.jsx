@@ -4,6 +4,7 @@ import Welcome from './pages/Welcome'
 import Hero from './pages/Hero'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Projects from './pages/Projects'
 
 function App() {
   const [screen, setScreen] = useState("welcome")
@@ -41,6 +42,12 @@ function App() {
       }
       {screen === "contact" &&
         <Contact
+          setScreen={setScreen}
+          key={screen}
+        />
+      }
+      {screen === "projects" &&
+        <Projects
           setScreen={setScreen}
           key={screen}
         />
