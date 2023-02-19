@@ -2,28 +2,6 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Backend from 'i18next-http-backend';
 
-// the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
-// const resources = {
-//   en: {
-//     translation: {
-//       "Hero-bio-1": "I'm",
-//       "Hero-nav-1": "About me",
-//       "Hero-nav-2": "Projects",
-//       "Hero-nav-3": "Contact",
-//     }
-//   },
-//   tr: {
-//     translation: {
-//       "Hero-bio-1": "",
-//       "Hero-nav-1": "Hakkımda",
-//       "Hero-nav-2": "Projelerim",
-//       "Hero-nav-3": "İletişim",
-//     }
-//   }
-// };
-
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(Backend)

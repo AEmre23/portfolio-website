@@ -64,6 +64,12 @@ body::-webkit-scrollbar-thumb{
   transition: all .4s ease-in-out;
   opacity: .4;
 }
+@media(max-width:975px){
+  .hoverEffect:hover> :not(:hover) {
+    transition: all .4s ease-in-out;
+    opacity: .9;
+  }
+}
 
 .shake {
   animation: shaking 1s infinite ;

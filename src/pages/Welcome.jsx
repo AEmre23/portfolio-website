@@ -23,8 +23,8 @@ const Welcome = ({ setScreen }) => {
     >
       <div className="h-[120px] m:h-[70px] overflow-hidden relative">
         <div className={`${animateTitle ? 'top-0' : '-top-[120px] m:-top-[80px]'} relative text-8xl m:text-[55px] text-center duration-300`}>
-          <div className="">WELCOME</div>
-          <div className="mt-8">HOŞGELDİNİZ</div>
+          <div className="animate-text bg-gradient-to-r from-teal-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent">WELCOME</div>
+          <div className="mt-8 animate-text bg-gradient-to-r from-teal-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent">HOŞGELDİNİZ</div>
         </div>
       </div>
       <img
