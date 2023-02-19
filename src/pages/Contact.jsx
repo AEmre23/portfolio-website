@@ -35,7 +35,7 @@ const Contact = ({ setScreen }) => {
       transition={{ duration: 1, opacity: { delay: 1 } }}
       className="text-white z-30 relative h-screen m:min-h-screen m:mt-6 w-screen flex flex-col gap-24 m:gap-20 justify-center items-center"
     >
-      <h1 className="animate-text bg-gradient-to-r from-teal-500 via-yellow-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">
+      <h1 className="animate-text bg-gradient-to-r from-teal-500 via-yellow-500 to-orange-500 bg-clip-text py-2 text-transparent text-5xl font-black">
         {t('Contact-1')}
       </h1>
       <div className="hoverEffect flex flex-wrap gap-y-8 items-center justify-center">
@@ -49,9 +49,9 @@ const Contact = ({ setScreen }) => {
         ))}
       </div>
       <div className="animate-border w-[50vw] m:w-[90vw] rounded-xl from-teal-500 via-red-500 to-yellow-500 bg-[length:400%_400%] p-0.5 bg-gradient-to-r">
-        <span className="block px-5 rounded-xl py-3 font-bold text-center text-lg text-white bg-neutral-900">{t('Contact-3')}</span>
+        <span className="block px-5 rounded-xl py-3 font-bold text-center text-lg text-neutral-300 bg-neutral-900">{t('Contact-3')}</span>
       </div>
-      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake hover:scale-110">
+      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake ">
         <GoBack width="75" height="75" setScreen={setScreen} />
       </div>
     </m.div>

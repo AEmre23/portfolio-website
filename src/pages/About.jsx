@@ -16,10 +16,12 @@ const About = ({ setScreen }) => {
   const ref2 = useRef(null)
   const ref3 = useRef(null)
   const ref4 = useRef(null)
+  const ref5 = useRef(null)
   const isInViewFor1 = useInView(ref1, { once: true })
   const isInViewFor2 = useInView(ref2, { once: true })
   const isInViewFor3 = useInView(ref3, { once: true })
   const isInViewFor4 = useInView(ref4, { once: true })
+  const isInViewFor5 = useInView(ref5, { once: true })
 
   return (
     <m.div
@@ -139,7 +141,15 @@ const About = ({ setScreen }) => {
             
           </div>
         </m.div>
-        <div className="flex gap-24 m:gap-4 py-6 justify-center items-center">
+        <m.div
+          style={{
+            transform: isInViewFor5 ? "none" : "translateY(100px)",
+            opacity: isInViewFor5 ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+          }}
+          ref={ref5}
+          className="flex gap-24 m:gap-4 py-6 justify-center items-center"
+        >
           <button 
             onClick={() => setScreen("contact")} 
             className="hover:bg-gray-100 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
@@ -152,9 +162,9 @@ const About = ({ setScreen }) => {
           >
             {t('About-5-2')}
           </button>
-        </div>
+        </m.div>
       </m.div>
-      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake hover:scale-110">
+      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake">
         <GoBack width="75" height="75" setScreen={setScreen} />
       </div>
       <ArrowDown />

@@ -81,7 +81,6 @@ const Projects = ({ setScreen }) => {
           {projectInfo.map((item, index) => (
             <EachProject
               key={index}
-              index={index}
               title={item.title}
               description={item.description}
               linksite={item.linksite}
@@ -102,7 +101,7 @@ const Projects = ({ setScreen }) => {
           {t('Project-8')}
         </div>
       </div>
-      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake hover:scale-110">
+      <div  className="text-yellow-500 fixed top-8 right-8 cursor-pointer shake">
         <GoBack width="75" height="75" setScreen={setScreen} />
       </div>
       <ArrowDown />
@@ -110,7 +109,7 @@ const Projects = ({ setScreen }) => {
   )
 }
 
-const EachProject = ({ title, description, linksite, linkcode, image, setShowingProject, index }) => {
+const EachProject = ({ title, description, linksite, linkcode, image, setShowingProject }) => {
   const [isHovering, setIsHovering] = useState(false)
   const ref = useRef(null)
   const { t } = useTranslation()
@@ -137,9 +136,9 @@ const EachProject = ({ title, description, linksite, linkcode, image, setShowing
       ref={ref}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
-      className={`hover:outline hover:outline-yellow-100 hover:shadow-[0px_0px_20px_#ffff] p-8 m:p-4 rounded-xl duration-500 bg-neutral-900 cursor-default flex flex-col justify-center gap-12 m:gap-10`}
+      className="hover:outline hover:outline-yellow-100 hover:shadow-[0px_0px_20px_#ffff] p-8 m:p-4 rounded-xl duration-500 bg-neutral-900 cursor-default flex flex-col justify-center gap-12 m:gap-10"
       style={{
-        transform: isInView ? "none" : "translateX(-200px)",
+        transform: isInView ? "none" : "translateX(-100px)",
         opacity: isInView ? 1 : 0,
       }}
     >
