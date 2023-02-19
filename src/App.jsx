@@ -1,5 +1,7 @@
-import { useLayoutEffect, useState } from 'react'
+// Dependencies
+import { useState } from 'react'
 import { motion as m, AnimatePresence } from 'framer-motion'
+// Pages
 import Welcome from './pages/Welcome'
 import Hero from './pages/Hero'
 import About from './pages/About'
@@ -7,15 +9,8 @@ import Contact from './pages/Contact'
 import Projects from './pages/Projects'
 
 function App() {
-  const [screen, setScreen] = useState("welcome")
+  const [screen, setScreen] = useState("welcome") // router
   const [homeAnimate, setHomeAnimate] = useState(true)
-
-  // useLayoutEffect(() => {
-  //   let getLanguage = localStorage.getItem("lang")
-  //   if (getLanguage) {
-  //     setScreen("hero")
-  //   }
-  // }, [])
 
   return (
     <AnimatePresence>

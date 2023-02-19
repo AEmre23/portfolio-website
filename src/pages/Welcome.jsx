@@ -1,8 +1,9 @@
-import { motion as m } from 'framer-motion'
-import arrow from '../assets/arrow.png'
+// Dependencies
 import { useState, useEffect } from 'react'
+import { motion as m } from 'framer-motion'
+// Components
+import arrow from '../assets/arrow.png'
 import SwitchLang from '../utilities/switchLang'
-
 
 const Welcome = ({ setScreen }) => {
   const [animateTitle, setAnimateTitle] = useState(true)
@@ -10,8 +11,6 @@ const Welcome = ({ setScreen }) => {
   useEffect(() => {
     if (localStorage.getItem('lang') === 'tr') setAnimateTitle(false)
   }, []);
-  // type animation :
-  // w-[34ch] whitespace-nowrap overflow-hidden animate-typing
 
   return (
     <m.div

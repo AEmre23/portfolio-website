@@ -1,12 +1,14 @@
+// Dependencies
 import React, { useRef } from 'react'
-import { motion as m } from 'framer-motion'
+import { motion as m, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+// Components
 import GoBack from '../utilities/goback'
-import pp from '../assets/pp.png'
-import { useInView } from "framer-motion"
+import ArrowDown from '../components/arrowDown'
+// Assets
 import Circle from '../utilities/circle'
 import Skills from '../components/skills'
-import ArrowDown from '../components/arrowDown'
+import pp from '../assets/pp.png'
 
 const About = ({ setScreen }) => {
   const { t } = useTranslation()
@@ -140,13 +142,13 @@ const About = ({ setScreen }) => {
         <div className="flex gap-24 m:gap-4 py-6 justify-center items-center">
           <button 
             onClick={() => setScreen("contact")} 
-            className="hover:bg-gray-100 bg-neutral-900 duration-300 hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
+            className="hover:bg-gray-100 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
           >
             {t('About-5-1')}
           </button>
           <button 
             onClick={() => setScreen("projects")} 
-            className="hover:bg-gray-100 bg-neutral-900 duration-300 hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
+            className="hover:bg-gray-100 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
           >
             {t('About-5-2')}
           </button>

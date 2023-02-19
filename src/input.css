@@ -12,6 +12,7 @@ body{
   cursor: default;
   overflow-x: clip;
   scroll-padding-top: 30px;
+  box-sizing: border-box;
 }
 body::-webkit-scrollbar{
   background: dimgrey;
