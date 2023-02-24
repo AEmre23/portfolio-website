@@ -29,7 +29,7 @@ const About = ({ setScreen }) => {
       transition={{ duration: 1 }}
       className="text-white relative py-12 m:pt-36 min-h-screen flex justify-center items-center overflow-clip"
     >
-      <m.div className="w-8/12 max-w-[1025px] m:w-11/12 space-y-8">
+      <m.div className="w-8/12 max-w-[1025px] m:w-11/12 space-y-12">
         <m.div
           style={{
             transform: isInViewFor1 ? "none" : "translateY(100px)",
@@ -86,7 +86,7 @@ const About = ({ setScreen }) => {
             opacity: isInViewFor3 ? 1 : 0,
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
           }}
-          ref={ref3} className="rounded-3xl flex flex-col gap-12 m:gap-8 items-center justify-center border-4 border-[#C1AEFC] bg-neutral-900 p-12 m:p-6 ">{/* skills */}
+          ref={ref3} className="rounded-3xl flex flex-col gap-12 m:gap-8 items-center justify-center border-4 border-[#C1AEFC] bg-neutral-900 p-12 m:p-4 ">{/* skills */}
           <div className="flex flex-col gap-8 items-center m:pt-6">
             <i className="fa-solid fa-layer-group fa-2xl text-yellow-50"></i>
             <div className="text-xl w-36 text-center font-bold text-yellow-50">{t('About-3-1')}</div>
@@ -152,13 +152,13 @@ const About = ({ setScreen }) => {
         >
           <button 
             onClick={() => setScreen("contact")} 
-            className="hover:bg-gray-100 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
+            className="hover:bg-gray-50 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-white text-yellow-50 rounded-lg w-44"
           >
             {t('About-5-1')}
           </button>
           <button 
             onClick={() => setScreen("projects")} 
-            className="hover:bg-gray-100 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-yellow-50 text-yellow-100 rounded-lg w-44"
+            className="hover:bg-gray-50 bg-neutral-900 duration-300 font-bold hover:text-black text-base cursor-pointer p-2 border-2 border-white text-yellow-50 rounded-lg w-44"
           >
             {t('About-5-2')}
           </button>
