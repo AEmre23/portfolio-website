@@ -4,8 +4,8 @@ import { motion as m, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 // Components
 import GoBack from "../utilities/goback";
-import ArrowDown from "../components/arrowDown";
-import { mobileCheck } from "../utilities/mobileChecker";
+import ArrowDown from "../components/goTop";
+import { mobileCheck } from "../functions/mobileChecker";
 // Assets
 import gokce from "../assets/gokce.PNG";
 import sloth from "../assets/sloth.PNG";
