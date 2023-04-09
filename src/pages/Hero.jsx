@@ -2,7 +2,8 @@
 import { motion as m } from "framer-motion";
 import { useTranslation } from "react-i18next";
 // Components
-import SwitchLang from "../utilities/switchLang";
+import SwitchLang from "../utils/switchLang";
+// Functions
 import { mobileCheck } from "../functions/mobileChecker";
 
 const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
@@ -27,7 +28,7 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
       animate={{ opacity: 1 }}
       exit={{ x: "100vw" }}
       transition={{ duration: 1, opacity: { delay: 1 } }}
-      className="text-3xl font-poppins h-screen relative overflow-hidden"
+      className="text-3xl font-poppins h-screen w-screen relative overflow-hidden"
     >
       <m.div
         variants={container1}
@@ -71,49 +72,49 @@ const Hero = ({ setScreen, homeAnimate, setHomeAnimate }) => {
           Developer
         </m.div>
       </m.div>
-      <m.div
-        className="absolute bottom-8 right-8 m-auto m:left-0 m:right-0 m:bottom-[40%] flex text-right m:text-center flex-col gap-4"
-        variants={container3}
-        initial={homeAnimate ? "hidden" : "show"}
-        animate="show"
-      >
-        <m.div
-          onClick={() => {
-            setScreen("about");
-            setHomeAnimate(false);
-          }}
-          variants={containerChild3}
-          className="text-3xl bs:text-4xl text-gray-400 transition-all hover:text-white cursor-pointer"
-        >
-          {t("Hero-nav-1")}
-        </m.div>
-        <m.div
-          onClick={() => {
-            setScreen("projects");
-            setHomeAnimate(false);
-          }}
-          variants={containerChild3}
-          className="text-3x bs:text-4xl text-gray-400 transition-all hover:text-white cursor-pointer"
-        >
-          {t("Hero-nav-2")}
-        </m.div>
-        <m.div
-          onClick={() => {
-            setScreen("contact");
-            setHomeAnimate(false);
-          }}
-          variants={containerChild3}
-          className="text-3xl bs:text-4xl text-gray-400 transition-all hover:text-white cursor-pointer"
-        >
-          {t("Hero-nav-3")}
-        </m.div>
-      </m.div>
-      <div className="absolute top-5 left-3 m:right-2 m:left-[unset] text-sm duration-300 opacity-20 hover:opacity-90">
-        <SwitchLang />
-      </div>
+      <NavBar
+        t={t}
+        setScreen={setScreen}
+        homeAnimate={homeAnimate}
+        setHomeAnimate={setHomeAnimate}
+      />
+      <SwitchLang className="absolute top-5 left-3 m:right-5 m:top-8 m:left-[unset] duration-300 opacity-20 m:opacity-40 hover:opacity-90" />
     </m.main>
   );
 };
+
+function NavBar(props) {
+  const navBarObject = [
+    { name: props.t("Hero-nav-1"), href: "about" },
+    { name: props.t("Hero-nav-2"), href: "projects" },
+    { name: props.t("Hero-nav-3"), href: "contact" },
+  ];
+
+  const handleClick = (href) => {
+    props.setScreen(href);
+    props.setHomeAnimate(false);
+  };
+
+  return (
+    <m.div
+      className="absolute bottom-8 right-8 m-auto m:left-0 m:right-0 m:bottom-[40%] flex text-right m:text-center flex-col gap-4"
+      variants={container3}
+      initial={props.homeAnimate ? "hidden" : "show"}
+      animate="show"
+    >
+      {navBarObject.map((item) => (
+        <m.div
+          key={item.name}
+          onClick={() => handleClick(item.href)}
+          variants={containerChild3}
+          className="text-3xl bs:text-4xl text-gray-400 transition-all hover:text-white cursor-pointer"
+        >
+          {item.name}
+        </m.div>
+      ))}
+    </m.div>
+  );
+}
 
 const container1 = {
   hidden: { delay: 1, x: "-100%" },

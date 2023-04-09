@@ -3,10 +3,14 @@ import { useState, useLayoutEffect } from "react";
 import { motion as m } from "framer-motion";
 // Components
 import arrow from "../assets/arrow.png";
-import SwitchLang from "../utilities/switchLang";
+import SwitchLang from "../utils/switchLang";
 
 const Welcome = ({ setScreen }) => {
   const [animateTitle, setAnimateTitle] = useState(true);
+
+  const handleTitleAnimate = () => {
+    setAnimateTitle(!animateTitle);
+  };
 
   useLayoutEffect(() => {
     if (localStorage.getItem("lang") === "tr") setAnimateTitle(false);
@@ -41,7 +45,7 @@ const Welcome = ({ setScreen }) => {
         src={arrow}
         alt="arrow-icon"
       />
-      <SwitchLang change={animateTitle} setChange={setAnimateTitle} />
+      <SwitchLang onChange={handleTitleAnimate} />
     </m.div>
   );
 };

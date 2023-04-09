@@ -1,4 +1,3 @@
-import React from 'react'
 // Assets
 import gokce from "../assets/gokce.PNG";
 import sloth from "../assets/sloth.PNG";
@@ -6,8 +5,8 @@ import blog from "../assets/blog.PNG";
 import pop from "../assets/pop.PNG";
 import country from "../assets/country.PNG";
 import emre from "../assets/emre.PNG";
-const useProjectInfos = () => {
 
+const getProjectInfos = (t) => {
   const projectInfo = [
     {
       title: t("Project-1"),
@@ -50,11 +49,7 @@ const useProjectInfos = () => {
       image: country,
     },
   ];
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return projectInfo;
+};
 
-export default projectInfos
+export { getProjectInfos };
