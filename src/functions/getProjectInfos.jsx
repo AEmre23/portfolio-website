@@ -1,7 +1,7 @@
 // Assets
 import gokce from "../assets/gokce.PNG";
 import sloth from "../assets/sloth.PNG";
-import derimod from "../assets/derimod.PNG";
+import derimod from "../assets/derimod.png";
 import blog from "../assets/blog.PNG";
 import pop from "../assets/pop.PNG";
 import country from "../assets/country.PNG";
