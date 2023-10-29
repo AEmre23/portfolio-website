@@ -10,6 +10,7 @@ const EachProject = ({
   linkcode,
   image,
   setShowingProject,
+  disabled,
 }) => {
   const [isHovering, setIsHovering] = useState(false);
   const ref = useRef(null);
@@ -58,20 +59,29 @@ const EachProject = ({
           isHovering ? "opacity-100" : "m:opacity-100 opacity-0"
         } duration-300 flex gap-6 m:gap-3 items-center`}
       >
-        <a
-          target="_blank"
-          href={linksite}
-          className="border-2 border-white bs:p-4 p-3 bs:px-8 px-6 m:px-2 m:p-2 rounded-md bs:text-lg text-base m:text-xs transition duration-300 font-semibold hover:border-black hover:bg-white hover:text-black"
-        >
-          {t("Project-9-1")}
-        </a>
+        { disabled ? 
+        (
+          <>
+            <button disabled className="cursor-not-allowed !whitespace-nowrap hover:bg-transparent hover:opacity-30 hover:border-gray-300 hover:text-gray-400 border-gray-300 border-2 bs:p-4 p-3 bs:px-8 px-6 m:px-2 m:p-2 rounded-md bs:text-lg text-base m:text-xs transition duration-300 font-semibold hover:bg-white">{t("Project-9-1")}</button>
+            <i className="text-gray-400 m:w-fit text-sm m:text-xs font-medium">{t("General-disabled")}</i> 
+          </>
+        ) : ( 
+          <a
+            target="_blank"
+            href={linksite}
+            className="!whitespace-nowrap border-2 border-white bs:p-4 p-3 bs:px-8 px-6 m:px-2 m:p-2 rounded-md bs:text-lg text-base m:text-xs transition duration-300 font-semibold hover:border-black hover:bg-white hover:text-black"
+          >
+            {t("Project-9-1")}
+          </a> 
+          )
+        }
         {isMobile ? (
           <div
             onClick={() => {
               setShowingProject(image);
               document.documentElement.scrollTop = 0;
             }}
-            className="border-2 border-white p-4 px-6 m:px-2 m:p-2 rounded-md text-lg m:text-xs transition duration-300 font-semibold hover:border-black hover:bg-white hover:text-black"
+            className="border-2 whitespace-nowrap border-white p-4 px-6 m:px-2 m:p-2 rounded-md text-lg m:text-xs transition duration-300 font-semibold hover:border-black hover:bg-white hover:text-black"
           >
             {t("Project-9-2")}
           </div>

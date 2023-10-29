@@ -39,6 +39,7 @@ const Projects = ({ setScreen }) => {
                 linkcode={item.linkcode}
                 setShowingProject={setShowingProject}
                 image={item.image}
+                disabled={item.disabled}
               />
             ))}
           </div>

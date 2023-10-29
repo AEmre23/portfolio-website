@@ -1,6 +1,7 @@
 // Assets
 import gokce from "../assets/gokce.PNG";
 import sloth from "../assets/sloth.PNG";
+import derimod from "../assets/derimod.PNG";
 import blog from "../assets/blog.PNG";
 import pop from "../assets/pop.PNG";
 import country from "../assets/country.PNG";
@@ -13,6 +14,13 @@ const getProjectInfos = (t) => {
       description: t("Project-1-1"),
       linksite: "https://gokcecbsharita.net/",
       image: gokce,
+      disabled: true,
+    },
+    {
+      title: t("Project-11"),
+      description: t("Project-11-1"),
+      linksite: "https://derimod.com.tr/",
+      image: derimod,
     },
     {
       title: t("Project-2"),
