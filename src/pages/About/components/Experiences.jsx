@@ -21,22 +21,45 @@ function Experiences(props) {
       </div>
 
       <div className="space-y-3 flex flex-col self-start">
+
         <div className="flex gap-4 items-center">
-          <Circle classname="text-yellow-500 scale-110 bg-yellow-500 rounded-full" />
+          <Circle classname="text-yellow-600 scale-120 bg-yellow-500 rounded-full" />
+          <div className="relative">
+            <a
+              href="https://www.linkedin.com/company/holly-palm"
+              target="_blank"
+              className=""
+            >
+              <span className="text-xl hover:underline text-yellow-400">
+                Holly Palm
+              </span>
+            </a>
+            <div className="absolute -bottom-6 text-sm whitespace-nowrap">
+              Frontend Developer{" "}
+              <span className="font-bold text-yellow-300">|</span>{" "}
+              {props.t("About-2-5")} 2024 - {props.t("About-2-4")}
+            </div>
+          </div>
+        </div>
+
+        <div className="h-16 ml-[9px] border-l-2 border-l-yellow-200" />
+
+        <div className="flex gap-4 items-center">
+          <Circle classname="text-yellow-100 scale-105 rounded-full" />
           <div className="relative">
             <a
               href="https://www.linkedin.com/company/tesodev/"
               target="_blank"
               className=""
             >
-              <span className="text-xl hover:underline text-yellow-300">
+              <span className="text-lg hover:underline text-yellow-100">
                 Tesodev
               </span>
             </a>
-            <div className="absolute -bottom-6 text-sm whitespace-nowrap">
+            <div className="absolute -bottom-6 text-sm m:text-xs whitespace-nowrap">
               Frontend Developer{" "}
               <span className="font-bold text-yellow-300">|</span>{" "}
-              {props.t("About-2-2")} 2022 - {props.t("About-2-4")}
+              {props.t("About-2-2")} 2022 - {props.t("About-2-5")} 2024
             </div>
           </div>
         </div>
@@ -51,7 +74,9 @@ function Experiences(props) {
               target="_blank"
               className=""
             >
-              <span className="text-yellow-100 hover:underline">grayCat</span>
+              <span className="text-yellow-50 hover:underline">
+                grayCat
+              </span>
             </a>
             <div className="absolute -bottom-6 text-xs whitespace-nowrap">
               Frontend Developer{" "}

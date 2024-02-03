@@ -27,8 +27,8 @@ const Projects = ({ setScreen }) => {
       transition={{ duration: 1, opacity: { delay: 1 } }}
       className="text-white"
     >
-      <m.div className="text-white relative  flex items-center py-32 m:py-0 m:pb-8 px-16 m:px-6 justify-center">
-        <div className="w-11/12 m:w-full relative flex m:flex-col-reverse gap-24 ">
+      <div className="text-white relative  flex items-center py-32 m:py-0 m:pb-8 px-16 m:px-6 justify-center">
+        <div className="w-11/12 m:w-full relative flex m:flex-col-reverse gap-24">
           <div className="w-full flex flex-col gap-24 m:gap-20 pt-8">
             {projectInfo.map((item, index) => (
               <EachProject
@@ -47,7 +47,7 @@ const Projects = ({ setScreen }) => {
             id="image"
             className={`${
               showingProject ? "opacity-100" : "opacity-0 m:opacity-100"
-            } duration-300 bg-gray-100 m:mb-24 rounded-lg w-full h-full mt-24 m:mt-0 sticky m:relative top-1/2 -translate-y-1/2 m:top-44 m:translate-y-[0]`}
+            } duration-300 bg-gray-100 m:mb-24 rounded-lg w-full h-full mt-24 m:mt-0 sticky m:relative top-1/2 -translate-y-1/2 m:top-44 m:translate-y-0`}
           >
             <img
               className="w-full h-auto object-cover rounded-lg shadow-[0px_0px_20px_#ffff]"
@@ -55,7 +55,7 @@ const Projects = ({ setScreen }) => {
             />
           </div>
         </div>
-      </m.div>
+      </div>
       <Footer t={t} setScreen={setScreen} />
       <GoBack width="75" height="75" setScreen={setScreen} />
       <GoTop />

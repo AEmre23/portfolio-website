@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer(props) {
   return (
-    <div className="w-screen text-white text-center space-y-4 pb-12 justify-center flex flex-col items-center gap-12">
+    <div className="w-screen relative z-20 text-white text-center space-y-4 pb-12 justify-center flex flex-col items-center gap-12">
       <div className="font-bold text-xl m:px-4 m:leading-relaxed m:pt-8">
         {props.t("Project-6")}{" "}
         <a
