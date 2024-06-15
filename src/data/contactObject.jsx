@@ -23,7 +23,7 @@ export const contactObject = [
     ),
   },
   {
-    link: "https://www.linkedin.com/in/ahmet-emre-altunkaya/",
+    link: "https://www.linkedin.com/in/emre-altunkaya/",
     svg: (
       <svg
         width="80px"
