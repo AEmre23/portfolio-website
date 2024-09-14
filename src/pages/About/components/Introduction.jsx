@@ -1,5 +1,5 @@
 import React from "react";
-import pp from "../../../assets/pp.png";
+import pp from "../../../assets/pp.jpeg";
 import { motion as m } from "framer-motion";
 
 function Introduction(props) {

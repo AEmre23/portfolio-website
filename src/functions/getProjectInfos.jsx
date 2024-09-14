@@ -1,26 +1,53 @@
 // Assets
-import gokce from "../assets/gokce.PNG";
-import sloth from "../assets/sloth.PNG";
-import derimod from "../assets/derimod.png";
+// import gokce from "../assets/gokce.PNG";
+import sloth from "../assets/sloth.png";
+import derimod from "../assets/derimod.jpeg";
 import blog from "../assets/blog.PNG";
 import pop from "../assets/pop.PNG";
 import country from "../assets/country.PNG";
 import emre from "../assets/emre.PNG";
+import purest from "../assets/purest.png";
+import jumbo from "../assets/jumbo.png";
+import karaca from "../assets/karaca.png";
+import ilacsiz from "../assets/ilacsiz.png";
 
 const getProjectInfos = (t) => {
   const projectInfo = [
-    {
-      title: t("Project-1"),
-      description: t("Project-1-1"),
-      linksite: "https://gokcecbsharita.net/",
-      image: gokce,
-      disabled: true,
-    },
+    // {
+    //   title: t("Project-1"),
+    //   description: t("Project-1-1"),
+    //   linksite: "https://gokcecbsharita.net/",
+    //   image: gokce,
+    //   disabled: true,
+    // },
     {
       title: t("Project-11"),
       description: t("Project-11-1"),
       linksite: "https://derimod.com.tr/",
       image: derimod,
+    },
+    {
+      title: t("Project-13"),
+      description: t("Project-13-1"),
+      linksite: "https://www.jumbo.com.tr/",
+      image: jumbo,
+    },
+    {
+      title: t("Project-14"),
+      description: t("Project-14-1"),
+      image: karaca,
+    },
+    {
+      title: t("Project-12"),
+      description: t("Project-12-1"),
+      linksite: "https://thepurestsolutions.com/",
+      image: purest,
+    },
+    {
+      title: t("Project-15"),
+      description: t("Project-15-1"),
+      linksite: "https://www.ilacsizyasam.com/",
+      image: ilacsiz,
     },
     {
       title: t("Project-2"),

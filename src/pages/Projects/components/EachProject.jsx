@@ -66,6 +66,7 @@ const EachProject = ({
             <i className="text-gray-400 m:w-fit text-sm m:text-xs font-medium">{t("General-disabled")}</i> 
           </>
         ) : ( 
+          linksite ?
           <a
             target="_blank"
             href={linksite}
@@ -73,7 +74,14 @@ const EachProject = ({
           >
             {t("Project-9-1")}
           </a> 
-          )
+          : 
+          <button
+          disabled
+          className="cursor-not-allowed !whitespace-nowrap hover:bg-transparent hover:opacity-30 hover:border-gray-300 hover:text-gray-400 border-gray-300 border-2 bs:p-4 p-3 bs:px-8 px-6 m:px-2 m:p-2 rounded-md bs:text-lg text-base m:text-xs transition duration-300 font-semibold hover:bg-white"
+          >
+            {t("Project-16")}
+          </button>
+         )
         }
         {isMobile ? (
           <div

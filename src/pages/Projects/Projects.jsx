@@ -17,6 +17,12 @@ const Projects = ({ setScreen }) => {
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
+    
+    // Resimleri önceden yükleme
+    projectInfo.forEach(project => {
+      const img = new Image();
+      img.src = project.image;
+    });
   }, []);
 
   return (
