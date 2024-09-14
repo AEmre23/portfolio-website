@@ -1,6 +1,6 @@
 // Assets
 // import gokce from "../assets/gokce.PNG";
-import sloth from "../assets/sloth.png";
+import sloth from "../assets/sloth.PNG";
 import derimod from "../assets/derimod.jpeg";
 import blog from "../assets/blog.PNG";
 import pop from "../assets/pop.PNG";
