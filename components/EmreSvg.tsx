@@ -27,7 +27,7 @@ const EmreSvg = ({ delay }: { delay: number }) => {
     <div className={`${isHomePage ? '' : 'group'} relative`}>
       {isHomePage ? null : <Link href="/" className="absolute z-10 inset-0 "></Link>}
       <motion.svg
-          className="group-hover:scale-[1.025] duration-200"
+          className="group-hover:scale-[1.025] duration-200 w-[90dvw] sm:w-full"
           width="500"
           height="293"
           viewBox="0 0 339 199"

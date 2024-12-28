@@ -4,11 +4,15 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/AnimationContext";
 import { useLanguage } from "@/context/LanguageContext";
+import { useRef, useEffect, useState } from "react";
 
 const Navigation = ({ delay }: { delay: number }) => {
-  const { hasViewedHomeAnimation } = useAnimation();
   const { t } = useLanguage();
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const { hasViewedHomeAnimation } = useAnimation();
+  const [indicatorStyle, setIndicatorStyle] = useState({ width: 90, x: 0 });
+  const linksRef = useRef<Array<HTMLAnchorElement | null>>([]);
 
   const tabs = [
     { name: t("about"), href: "/about" },
@@ -16,31 +20,68 @@ const Navigation = ({ delay }: { delay: number }) => {
     { name: t("contact"), href: "/contact" },
   ];
 
+  useEffect(() => {
+    const activeLink = linksRef.current.find((link) => link?.getAttribute('href') === pathname);
+    if (activeLink) {
+      setIndicatorStyle({
+        width: activeLink.offsetWidth,
+        x: activeLink.offsetLeft
+      });
+    } else {
+      const firstLink = linksRef.current[0];
+      if (firstLink) {
+        setIndicatorStyle({ width: firstLink.offsetWidth, x: firstLink.offsetLeft });
+      }
+    }
+  }, [pathname, t]);
+
   return (
-    <motion.div 
+    <motion.nav 
+      className="relative bg-nav-beige rounded-full p-1.5 shadow-lg w-[320px] mx-auto"
       initial={ hasViewedHomeAnimation ? { opacity: 0 } : { scale: 1.4, opacity: 0 }}
       animate={ hasViewedHomeAnimation ? { opacity: 1 } : { scale: 1, opacity: 1 }}
-      transition={{ 
+      transition={{
         duration: 1.5,
         ease: "easeOut",
         delay: hasViewedHomeAnimation ? 0.4 : delay
       }}
-      className="flex p-1.5 bg-nav-beige rounded-full gap-6 shadow-lg mx-auto w-[320px] justify-center"
     >
-      {tabs.map((tab) => (
-        <Link
-          key={tab.href}
-          href={tab.href}
-          className={`px-4 py-2 rounded-full font-medium transition-all min-w-[80px] text-center ${
-            pathname === tab.href
-              ? "bg-white shadow-sm text-black"
-              : "text-gray-600 hover:text-black"
-          }`}
-        >
-          {tab.name}
-        </Link>
-      ))}
-    </motion.div>
+      {/* Indicator */}
+      {!isHomePage && (
+        <motion.div
+          className="absolute h-9 rounded-full bg-black/10 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{
+            width: indicatorStyle.width,
+            x: indicatorStyle.x,
+            opacity: 1
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 30,
+            opacity: { duration: 1.5 }
+          }}
+        />
+      )}
+      {/* Navigation Links */}
+      <div className="relative flex justify-between px-4">
+        {tabs.map((tab, index) => (
+          <Link
+            key={tab.href}
+            href={tab.href}
+            ref={(el) => {
+              linksRef.current[index] = el;
+            }}
+            className={`px-4 py-1.5 rounded-full text-center font-medium transition-colors relative z-10
+              ${pathname === tab.href && !isHomePage ? 'text-black' : 'text-black/60 hover:text-black'}
+              ${isHomePage ? 'hover:bg-black/10 hover:backdrop-blur-sm' : 'hover:text-black'} `}
+          >
+            {tab.name}
+          </Link>
+        ))}
+      </div>
+    </motion.nav>
   );
 };
 

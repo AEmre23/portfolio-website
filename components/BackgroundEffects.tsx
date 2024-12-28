@@ -31,13 +31,13 @@ const BackgroundEffects = () => {
         }}
         className="radial-overlay" />
       <motion.div 
-        initial={shouldAnimate ? { scale: 2, rotate: "6deg" } : {}}
+        initial={shouldAnimate ? { scale: 2, rotate: "4deg" } : { scale: 1.2, rotate: "4deg"}}
         animate={{ 
-          scale: shouldAnimate ? 1.2 : 1,
-          rotate: ["4deg", "4.5deg", "4deg"]
+          scale: 1.2,
+          rotate: ["4deg", "4.75deg", "4deg"]
         }}
         transition={{ 
-          scale: { duration: 5, ease: "easeOut" },
+          scale: shouldAnimate ? { duration: 5, ease: "easeInOut" } : { duration: 0.4 },
           rotate: { 
             duration: 6,
             ease: "easeInOut",
