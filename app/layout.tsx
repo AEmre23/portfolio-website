@@ -1,8 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
-import BackgroundEffects from "@/components/BackgroundEffects";
-import { AnimationProvider } from "@/context/AnimationContext";
+import ClientLayout from "@/components/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AnimationProvider>
-          <BackgroundEffects />
+        <ClientLayout>
           {children}
-        </AnimationProvider>
+        </ClientLayout>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client"
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useLayoutEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 type AnimationContextType = {
   hasViewedHomeAnimation: boolean;
   setHasViewedHomeAnimation: (value: boolean) => void;
@@ -9,7 +9,9 @@ type AnimationContextType = {
 const AnimationContext = createContext<AnimationContextType | undefined>(undefined);
 
 export const AnimationProvider = ({ children }: { children: React.ReactNode }) => {
-  const [hasViewedHomeAnimation, setHasViewedHomeAnimation] = useState(false);
+  const pathname = usePathname();
+  const isNotHomePage = pathname !== "/";
+  const [hasViewedHomeAnimation, setHasViewedHomeAnimation] = useState(isNotHomePage);
 
   return (
     <AnimationContext.Provider value={{ hasViewedHomeAnimation, setHasViewedHomeAnimation }}>
