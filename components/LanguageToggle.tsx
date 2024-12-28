@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAnimation } from "@/context/AnimationContext";
+import USAFlag from "@/assets/USA.png";
+import TurkeyFlag from "@/assets/Turkey.png";
+
 const LanguageToggle = () => {
   const { language, setLanguage } = useLanguage();
   const { hasViewedHomeAnimation } = useAnimation();
@@ -27,7 +30,7 @@ const LanguageToggle = () => {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <Image
-          src={isEnglish ? "/usa.png" : "/turkey.png"}
+          src={isEnglish ? USAFlag : TurkeyFlag}
           alt={isEnglish ? "English" : "Türkçe"}
           width={24}
           height={24}

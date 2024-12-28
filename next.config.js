@@ -1,10 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Static HTML dışa aktarımı için
-  distDir: 'dist',   // Build çıktı klasörü
-  images: {
-    unoptimized: true, // Static export için gerekli
-  }
+  // Static export ayarlarını kaldırıyoruz
 }
 
 module.exports = nextConfig 
