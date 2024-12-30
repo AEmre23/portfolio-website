@@ -11,7 +11,7 @@ const EmreSvg = ({ delay }: { delay: number }) => {
 
     const pathVariants = {
         hidden: hasViewedHomeAnimation ? { pathLength: 1, opacity: 1, fill: '#131313' } : { pathLength: 0, opacity: 0, fill: '#f7f7f701' },
-        visible: (i: number) => ( hasViewedHomeAnimation ? {} : {
+        visible: hasViewedHomeAnimation ? {} : {
             pathLength: 1,
             opacity: 1,
             fill: 'rgba(19, 19, 19, 0.875)',
@@ -20,7 +20,7 @@ const EmreSvg = ({ delay }: { delay: number }) => {
               opacity: { duration: 0.01, delay: delay + 0.1 },
               fill: { delay: 3.3, duration: 0.7, ease: 'easeIn' },
             }
-        })
+        }
     };
 
 
