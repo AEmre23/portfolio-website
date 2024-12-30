@@ -37,7 +37,7 @@ const Navigation = ({ delay }: { delay: number }) => {
 
   return (
     <motion.nav 
-      className="relative bg-nav-beige rounded-full p-1.5 shadow-lg w-[320px] mx-auto"
+      className="relative bg-nav-beige rounded-full p-1.5 shadow-lg w-fit mx-auto select-none"
       initial={ hasViewedHomeAnimation ? { opacity: 0 } : { scale: 1.4, opacity: 0 }}
       animate={ hasViewedHomeAnimation ? { opacity: 1 } : { scale: 1, opacity: 1 }}
       transition={{
@@ -73,11 +73,11 @@ const Navigation = ({ delay }: { delay: number }) => {
             ref={(el) => {
               linksRef.current[index] = el;
             }}
-            className={`px-4 py-1.5 rounded-full text-center font-medium transition-colors relative z-10
+            className={`px-4 py-1.5 flex-shrink-0 w-28 rounded-full text-center font-medium transition-colors relative z-10
               ${pathname === tab.href && !isHomePage ? 'text-black' : 'text-black/60 hover:text-black'}
               ${isHomePage ? 'hover:bg-black/10 hover:backdrop-blur-sm' : 'hover:text-black'} `}
           >
-            {tab.name}
+            {tab.name.toLocaleLowerCase()}
           </Link>
         ))}
       </div>

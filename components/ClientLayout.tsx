@@ -25,7 +25,7 @@ export default function ClientLayout({
             className="flex flex-col gap-8 items-center justify-center z-50 w-full fixed left-0 right-0"
             initial={false}
             animate={{
-              top: isHomePage ? `calc(50% - 198.5px)` : "0",
+              top: isHomePage ? `calc(50% - 265px)` : "0",
             }}
             transition={{
               type: "spring",
@@ -45,13 +45,13 @@ export default function ClientLayout({
                 damping: 15
               }}
             >
-              <EmreSvg delay={0.3} />
+              <EmreSvg delay={0.7} />
             </motion.div>
             <motion.div className="relative" animate={{ top: isHomePage ? "0" : "-80px" }} transition={{ duration: 1.2, ease: "easeInOut" }}>
                 <Navigation delay={2.5} />
             </motion.div>
           </motion.header>
-          <motion.div className={`${isHomePage ? "!top-[600px]" : "!top-[300px]"} duration-1000 relative`} >
+          <motion.div className={`${isHomePage ? "!top-[600px]" : "!top-[300px]"} duration-1000 relative w-full max-w-xl mx-auto`} >
             <PageTransitionEffect>
                 {children}
             </PageTransitionEffect>
