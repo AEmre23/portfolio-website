@@ -93,7 +93,7 @@ export default function MailButton() {
       onClick={handleClick}
       className='border border-gray-400 group hover:border-gray-600 duration-300 rounded-full p-4 flex items-center justify-evenly gap-2 overflow-hidden'
     >
-      <MailIcon className={`size-16 duration-300 group-hover:text-[#EA4335] flex-shrink-0 ${isMobile && isExpanded ? 'text-[#EA4335]' : ''}`} />
+      <MailIcon className={`size-16 duration-300 group-hover:text-social-gmail flex-shrink-0 ${isMobile && isExpanded ? 'text-social-gmail' : ''}`} />
       <AnimatePresence>
         {((!isMobile && isExpanded) || (isMobile && isExpanded)) && (
           <motion.div 
@@ -106,7 +106,7 @@ export default function MailButton() {
               width: { duration: 0.3, delay: 0.3 }
             }}
           >
-            <div className='text-sm font-semibold whitespace-nowrap underline sm:no-underline sm:hover:underline'>
+            <div className='text-sm font-semibold whitespace-nowrap underline sm:no-underline sm:group-hover:underline'>
               {CONTACT.EMAIL}
             </div>
             <button
@@ -123,7 +123,7 @@ export default function MailButton() {
                     exit={{ scale: 0.5, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <CheckIcon className="size-6 text-green-500" />
+                    <CheckIcon className="size-6 text-status-success" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -133,7 +133,7 @@ export default function MailButton() {
                     exit={{ scale: 0.5, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <CopyIcon title='Copy' className={`size-6 duration-150 hover:text-[#EA4335]`} />
+                    <CopyIcon title='Copy' className={`size-6 duration-150 hover:text-social-gmail`} />
                   </motion.div>
                 )}
               </AnimatePresence>

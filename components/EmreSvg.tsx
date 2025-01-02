@@ -1,45 +1,50 @@
 "use client"
 import { useAnimation } from "@/context/AnimationContext";
+import { useLoading } from "@/context/LoadingContext";
+import { useDevice } from "@/context/DeviceContext";
 import { motion } from 'framer-motion';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const EmreSvg = ({ delay }: { delay: number }) => {
     const { hasViewedHomeAnimation } = useAnimation();
+    const { isLoading } = useLoading();
+    const { isMobile } = useDevice();
     const pathname = usePathname();
     const isHomePage = pathname === "/";
 
     const pathVariants = {
-        hidden: hasViewedHomeAnimation ? { pathLength: 1, opacity: 1, fill: '#131313' } : { pathLength: 0, opacity: 0, fill: '#f7f7f701' },
+        hidden: hasViewedHomeAnimation ? { pathLength: 1, opacity: 1, fill: '#131313' } : { pathLength: isMobile ? 1 : 0, opacity: 0, fill: isMobile ? '#131313' : '#f7f7f701' },
         visible: hasViewedHomeAnimation ? {} : {
             pathLength: 1,
             opacity: 1,
             fill: 'rgba(19, 19, 19, 0.875)',
             transition: {
-              pathLength: { duration: 3, delay: delay + 0.1 },
-              opacity: { duration: 0.01, delay: delay + 0.1 },
-              fill: { delay: 3.3, duration: 0.7, ease: 'easeIn' },
+              pathLength: { duration: isMobile ? 0 : 3, delay: isMobile ? 0 : delay + 0.1 },
+              opacity: { duration: isMobile ? 0.4 : 0.01, delay: isMobile ? 2 : delay + 0.1 },
+              fill: { delay: isMobile ? 0 : 3.3, duration: isMobile ? 0 : 0.7, ease: 'easeIn' },
             }
         }
     };
 
+    if (isLoading) return null;
 
     return (
         <div className={`${isHomePage ? '' : 'group'} relative`}>
             {isHomePage ? null : <Link href="/" className="absolute z-10 inset-0 "></Link>}
             <motion.svg 
                 className="group-hover:!scale-[1.05] bg-opacity-80 duration-200 w-[90dvw] sm:w-full overflow-visible"
-                width="500"
-                height="295"
+                width={isMobile ? "200" : "500"}
+                height={isMobile ? "118" : "295"}
                 viewBox="0 0 229 135"
-                drag
+                drag={!isMobile}
                 dragConstraints={{ top: 1, left: 1, right: 1, bottom: 1 }}
-                dragElastic
+                dragElastic={!isMobile}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                initial={ hasViewedHomeAnimation ? { opacity: 0 } : { opacity: 0, scale: 1.3, rotate: "9deg" } }
-                animate={ hasViewedHomeAnimation ? { opacity: 1 } :  { opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: hasViewedHomeAnimation ? 0.3 : 1, ease: "easeInOut", delay: hasViewedHomeAnimation ? 0.1 : delay  }}>
+                initial={isMobile ? { opacity: 0 } : hasViewedHomeAnimation ? { opacity: 0 } : { opacity: 0, scale: 1.3, rotate: "9deg" }}
+                animate={isMobile ? { opacity: 1 } : hasViewedHomeAnimation ? { opacity: 1 } : { opacity: 1, scale: 1, rotate: 0 }}
+                transition={isMobile ? { duration: 0.1 } : { duration: hasViewedHomeAnimation ? 0.3 : 1, ease: "easeInOut", delay: hasViewedHomeAnimation ? 0.1 : delay }}>
                 <motion.path variants={pathVariants} initial="hidden" animate="visible" stroke="#131313" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" fillRule="evenodd" clipRule="evenodd" d="M199.082 89.3077L197.814 86.1273C198.891 85.0379 200.261 84.176 201.924 83.5416C203.587 82.8656 205.231 82.523 206.856 82.5138C213.898 82.4741 217.453 88.5375 217.521 100.704C217.531 102.371 217.44 104.83 217.25 108.081C217.102 111.332 217.032 113.769 217.041 115.394C216.715 116.688 216.073 117.337 215.115 117.343C214.365 117.347 213.675 116.976 213.046 116.229C212.417 115.483 212.1 114.651 212.094 113.735C212.093 113.443 212.113 113.235 212.153 113.109C209.584 115.624 206.841 116.889 203.925 116.906C201.716 116.918 199.775 116.138 198.099 114.564C196.465 112.948 195.641 110.994 195.628 108.702C195.607 104.828 197.087 101.319 200.069 98.1773C203.093 95.0352 206.522 93.4534 210.355 93.4318C210.522 93.4308 210.689 93.4507 210.855 93.4914C211.022 93.4905 211.21 93.5103 211.418 93.5508C211.669 93.591 211.856 93.6108 211.981 93.6101C211.62 88.7371 209.669 86.3105 206.128 86.3305C204.044 86.3422 201.696 87.3346 199.082 89.3077ZM212.254 108.796C212.321 105.879 212.35 103.671 212.342 102.171C212.335 100.921 212.283 99.171 212.187 96.9215L211.687 96.9243C208.729 96.9826 206.027 98.102 203.581 100.283C201.177 102.463 199.983 105.095 200 108.178C200.008 109.511 200.41 110.571 201.206 111.359C202.044 112.146 203.046 112.536 204.213 112.529C206.046 112.519 208.726 111.275 212.254 108.796Z"/>
                 <motion.path variants={pathVariants} initial="hidden" animate="visible" stroke="#131313" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" fillRule="evenodd" clipRule="evenodd" d="M174.276 134.948L170.389 132.783C172.08 129.815 175.069 124.173 179.356 115.857C175.964 112.876 173.355 108.349 171.529 102.276C169.703 96.2026 168.586 90.1254 168.177 84.0443L171.803 84.2114C172.017 85.2102 172.467 87.4994 173.154 91.0789C173.882 94.6165 174.459 97.2383 174.886 98.9442C175.312 100.65 176.053 102.792 177.109 105.369C178.207 107.905 179.448 110.044 180.833 111.786C186.562 100.628 189.406 91.4873 189.366 84.3624L189.362 83.6749C191.531 83.9961 193.158 84.3827 194.244 84.835C193.602 89.2137 192.585 93.6778 191.194 98.2274C189.803 102.777 188.058 107.37 185.959 112.007C183.86 116.602 181.986 120.467 180.337 123.601C178.73 126.736 176.709 130.518 174.276 134.948Z"/>
                 <motion.path variants={pathVariants} initial="hidden" animate="visible" stroke="#131313" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" fillRule="evenodd" clipRule="evenodd" d="M146.083 89.6063L144.815 86.4259C145.892 85.3365 147.262 84.4746 148.925 83.8402C150.588 83.1641 152.232 82.8215 153.857 82.8124C160.898 82.7727 164.453 88.8361 164.522 101.003C164.531 102.669 164.441 105.128 164.251 108.379C164.103 111.63 164.033 114.068 164.042 115.693C163.716 116.987 163.074 117.636 162.116 117.641C161.366 117.646 160.676 117.275 160.047 116.528C159.418 115.782 159.101 114.95 159.095 114.033C159.094 113.742 159.113 113.533 159.154 113.408C156.585 115.923 153.842 117.188 150.926 117.204C148.717 117.217 146.775 116.436 145.1 114.862C143.466 113.246 142.642 111.293 142.629 109.001C142.607 105.126 144.088 101.618 147.07 98.4759C150.094 95.3338 153.523 93.7519 157.356 93.7303C157.523 93.7294 157.689 93.7493 157.856 93.79C158.023 93.7891 158.211 93.8089 158.419 93.8494C158.669 93.8896 158.857 93.9094 158.982 93.9087C158.621 89.0356 156.67 86.6091 153.128 86.629C151.045 86.6408 148.696 87.6332 146.083 89.6063ZM159.255 109.095C159.322 106.178 159.351 103.969 159.343 102.469C159.336 101.219 159.284 99.4696 159.188 97.2201L158.688 97.2229C155.73 97.2812 153.028 98.4006 150.582 100.581C148.178 102.761 146.984 105.393 147.001 108.476C147.009 109.81 147.411 110.87 148.207 111.657C149.045 112.444 150.047 112.834 151.213 112.828C153.047 112.817 155.727 111.573 159.255 109.095Z"/>

@@ -12,6 +12,13 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         'nav-beige': '#f7f3ed',
+        social: {
+          linkedin: '#0077b5',
+          gmail: '#EA4335'
+        },
+        status: {
+          success: '#22c55e' // green-500 rengi
+        }
       },
     },
   },

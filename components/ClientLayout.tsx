@@ -49,7 +49,7 @@ export default function ClientLayout({
               >
                 <EmreSvg delay={0.7} />
               </motion.div>
-              <motion.div className="relative" animate={{ top: isHomePage ? "0" : "-80px" }} transition={{ duration: 1.2, ease: "easeInOut" }}>
+              <motion.div className="relative" animate={{ top: isHomePage ? "0" : "-40px" }} transition={{ duration: 1.2, ease: "easeInOut" }}>
                   <Navigation delay={2.5} />
               </motion.div>
             </motion.header>

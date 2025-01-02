@@ -59,7 +59,7 @@ export default function LinkedInButton() {
       onClick={handleClick}
       className='border border-gray-400 group hover:border-gray-600 duration-300 rounded-full p-4 flex items-center justify-evenly gap-2 overflow-hidden'
     >
-      <LinkedInSvg className={`size-16 duration-300 group-hover:text-[#0077b5] flex-shrink-0 ${isMobile && isExpanded ? 'text-[#0077b5]' : ''}`} />
+      <LinkedInSvg className={`size-16 duration-300 group-hover:text-social-linkedin flex-shrink-0 ${isMobile && isExpanded ? 'text-social-linkedin' : ''}`} />
       <AnimatePresence>
         {((!isMobile && isExpanded) || (isMobile && isExpanded)) && (
           <motion.div 
@@ -73,9 +73,9 @@ export default function LinkedInButton() {
             }}
           >
             <div className='text-sm font-semibold whitespace-nowrap underline sm:no-underline sm:group-hover:underline'>
-              {CONTACT.LINKEDIN_URL.split('www.')[1]}
+                {CONTACT.LINKEDIN_URL.split('www.')[1]}
             </div>
-            <LinkIcon className={`size-4 flex-shrink-0 group-hover:text-[#0077b5] ${isMobile && isExpanded ? 'text-[#0077b5]' : ''}`} />
+            <LinkIcon className={`size-4 flex-shrink-0 group-hover:text-social-linkedin ${isMobile && isExpanded ? 'text-social-linkedin' : ''}`} />
           </motion.div>
         )}
       </AnimatePresence>

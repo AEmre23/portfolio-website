@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/AnimationContext";
 import { useLanguage } from "@/context/LanguageContext";
+import { useDevice } from "@/context/DeviceContext";
 import { useRef, useEffect, useState } from "react";
 
 const Navigation = ({ delay }: { delay: number }) => {
@@ -11,6 +12,7 @@ const Navigation = ({ delay }: { delay: number }) => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const { hasViewedHomeAnimation } = useAnimation();
+  const { isMobile } = useDevice();
   const [indicatorStyle, setIndicatorStyle] = useState({ width: 90, x: 0 });
   const linksRef = useRef<Array<HTMLAnchorElement | null>>([]);
 
@@ -38,12 +40,18 @@ const Navigation = ({ delay }: { delay: number }) => {
   return (
     <motion.nav 
       className="relative bg-nav-beige rounded-full p-1.5 shadow-lg w-fit mx-auto select-none"
-      initial={ hasViewedHomeAnimation ? { opacity: 0 } : { scale: 1.4, opacity: 0 }}
-      animate={ hasViewedHomeAnimation ? { opacity: 1 } : { scale: 1, opacity: 1 }}
+      initial={{ 
+        opacity: 0,
+        scale: isMobile ? 1 : hasViewedHomeAnimation ? 1 : 1.4
+      }}
+      animate={{ 
+        opacity: 1,
+        scale: 1
+      }}
       transition={{
-        duration: 1.5,
+        duration: isMobile ? 0.3 : 1.5,
         ease: "easeOut",
-        delay: hasViewedHomeAnimation ? 0.4 : delay
+        delay: isMobile ? 0.1 : hasViewedHomeAnimation ? 0.4 : delay
       }}
     >
       {/* Indicator */}
@@ -58,9 +66,9 @@ const Navigation = ({ delay }: { delay: number }) => {
           }}
           transition={{
             type: "spring",
-            stiffness: 300,
-            damping: 30,
-            opacity: { duration: 1.5 }
+            stiffness: isMobile ? 400 : 300,
+            damping: isMobile ? 40 : 30,
+            opacity: { duration: isMobile ? 0.5 : 1.5 }
           }}
         />
       )}
@@ -73,7 +81,7 @@ const Navigation = ({ delay }: { delay: number }) => {
             ref={(el) => {
               linksRef.current[index] = el;
             }}
-            className={`px-4 py-1.5 flex-shrink-0 w-28 rounded-full text-center font-medium transition-colors relative z-10
+            className={`px-4 py-1.5 flex-shrink-0 w-24 sm:w-28 rounded-full text-center font-medium transition-colors relative z-10
               ${pathname === tab.href && !isHomePage ? 'text-black' : 'text-black/60 hover:text-black'}
               ${isHomePage ? 'hover:bg-black/10 hover:backdrop-blur-sm' : 'hover:text-black'} `}
           >
